@@ -39,10 +39,12 @@ export async function fetchLatestInvoices() {
       ORDER BY invoices.date DESC
       LIMIT 5`;
 
+
     const latestInvoices = data.map((invoice) => ({
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }));
+    console.log('Latest Invoices Data:', latestInvoices);
     return latestInvoices;
   } catch (error) {
     console.error('Database Error:', error);
